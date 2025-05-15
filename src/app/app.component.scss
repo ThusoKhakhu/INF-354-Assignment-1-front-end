@@ -1,0 +1,44 @@
+/* Reset default margins & paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+/* Left side (Brand Name) */
+.nav-left {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Right side (Navigation Items) */
+.nav-right {
+    display: flex;
+    gap: 30px;
+    margin-right: 15%;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-item:hover {
+    color: gray;
+}

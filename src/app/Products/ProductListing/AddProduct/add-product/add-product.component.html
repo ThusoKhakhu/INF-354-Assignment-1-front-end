@@ -1,0 +1,73 @@
+<!-- <h1 class="title">Add Product</h1>
+
+<form class="product-form" (ngSubmit)="addProduct(productForm.value)" #productForm="ngForm">
+  
+  <mat-form-field class="full-width">
+    <mat-label>Product Name</mat-label>
+    <input matInput type="text" name="productName" [(ngModel)]="newProduct.productName">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Description</mat-label>
+    <input matInput type="text" name="description" [(ngModel)]="newProduct.description">
+  </mat-form-field>
+
+  
+  <mat-form-field class="full-width">
+    <mat-label>Price</mat-label>
+    <input matInput type="number" name="price" [(ngModel)]="newProduct.price">
+  </mat-form-field>
+
+  
+  <div class="">
+    <button mat-button style="background-color: blue; color: white; border-radius: 5px;" color="primary" type="submit" [disabled]="!productForm.valid">Add Product</button>
+    <button mat-button style="background-color: red; color: white; border-radius: 5px;" color="warn" onclick="onCancel()">Cancel</button>
+  </div>
+
+</form> -->
+
+<h1 class="title">Add Product</h1>
+
+<form class="product-form" (ngSubmit)="addProduct(productForm.value)" #productForm="ngForm">
+  
+  <!-- Product Name -->
+  <mat-form-field class="full-width">
+    <mat-label>Product Name</mat-label>
+    <input matInput type="text" name="productName" [(ngModel)]="newProduct.productName" required #productName="ngModel">
+    <mat-error *ngIf="productName.invalid && productName.touched">Product Name is required</mat-error>
+  </mat-form-field>
+
+  <!-- Description -->
+  <mat-form-field class="full-width">
+    <mat-label>Description</mat-label>
+    <input matInput type="text" name="description" [(ngModel)]="newProduct.description" required #description="ngModel">
+    <mat-error *ngIf="description.invalid && description.touched">Description is required</mat-error>
+  </mat-form-field>
+
+  <!-- Price -->
+  <mat-form-field class="full-width">
+    <mat-label>Price</mat-label>
+    <input matInput type="number" name="price" [(ngModel)]="newProduct.price" required min="1" #price="ngModel">
+    <mat-error *ngIf="price.invalid && price.touched">
+      <ng-container *ngIf="price.errors?.['required']">Price is required</ng-container>
+      <ng-container *ngIf="price.errors?.['min']">Price must be greater than 0</ng-container>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Buttons -->
+  <div>
+    <button mat-button 
+            style="background-color: blue; color: white; border-radius: 5px;" 
+            color="primary" 
+            type="submit" 
+            [disabled]="!productForm.valid">Add Product</button>
+
+    <button mat-button 
+            style="background-color: red; color: white; border-radius: 5px;" 
+            color="warn" 
+            type="button" 
+            (click)="onCancel()">Cancel</button>
+  </div>
+
+</form>
+

@@ -1,0 +1,50 @@
+ <h1>Products</h1>
+
+<div class="product-container">
+  <mat-card *ngFor="let product of products" class="product-card">
+    <mat-card-header>
+      <mat-card-title><strong>Name:</strong> {{ product.productName }}</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <p><strong>Price:</strong> R{{ product.price }}</p>
+      <p><strong>Description:</strong> {{ product.description }}</p>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-raised-button style="background-color: blue; color: white; border-radius: 5px;" color="warn" (click)="onUpdate(product.id)">Edit</button>
+      <button mat-raised-button style="background-color: red; color: white; border-radius: 5px;" color="warn" (click)="deleteProduct(product.id)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<!-- <h1 class="mb-4">Products</h1>
+
+<div class="product-container">
+  <mat-card *ngFor="let product of products" class="product-card">
+    <mat-card-header>
+      <mat-card-title class="fw-bold">Name: {{ product.productName }}</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <p><strong>Price:</strong> R{{ product.price }}</p>
+      <p><strong>Description:</strong> {{ product.description }}</p>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button 
+        mat-raised-button 
+        color="primary" 
+        class="me-2" 
+        (click)="onUpdate(product.id)">
+        Edit
+      </button>
+
+      <button 
+        mat-raised-button 
+        color="warn" 
+        (click)="deleteProduct(product.id)">
+        Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div> -->
